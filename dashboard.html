@@ -1,0 +1,502 @@
+<!-- =======================================
+     DASHBOARD HTML
+     "Code is like humor. When you have to explain it, it’s bad." 😎
+======================================= -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== CSS ===== -->
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <title>Sidebar sub menus</title>
+</head>
+<body id="body-pd">
+<!-- =========================
+      NAVIGATION BAR
+      "Keeping your site on track!" 🚦
+========================= -->
+  <nav class="site-nav">
+    
+      <button class="sidebar-toggle">
+        <span class="material-symbols-rounded">menu</span>
+
+      </button>
+      <h2 class="nav-title"> title</h2>
+  <div class="nav-right">
+    <!-- Notification -->
+    <button class="bell-btn">
+      🔔
+      <span class="badge">3</span><!-- Count your blessings and notifications 😉 -->
+    </button>
+
+    <!-- Profile Button -->
+    <button class="profile-btn" id="profileBtn">
+      <img src="https://i.pravatar.cc/150?img=12" alt="Profile" />
+    </button>
+
+    <!-- Profile Text -->
+    <div class="profile-text">
+      <span class="name" id="navName">Abdullah Aqeel</span>
+      <span class="post" id="navPost">Frontend Dev</span>
+    </div>
+
+    <!-- Dropdown -->
+    <div class="profile-dropdown" id="profileDropdown">
+      <h4>Edit Profile</h4>
+      <input type="text" id="nameInput" placeholder="Name" />
+      <input type="text" id="postInput" placeholder="Post" />
+      <button onclick="saveProfile()">Save</button>
+    </div>
+  </div>
+   
+    </nav>
+<!-- =========================
+       CONTAINER START
+       "Home of all the magic ✨"
+========================= -->
+  <!-- <div class="container"> -->
+  <div class="container">=
+<!-- =========================
+         SIDEBAR
+         "Where all shortcuts live 🗂️"
+========================= -->
+    <aside class="sidebar collapsed">
+      <!-- Sidebar header -->
+      <div class="sidebar-header">
+          <div class="title-img">
+          <h2 class="title">Title</h2>
+        </div>
+        <button class="sidebar-toggle">
+          <span class="material-symbols-rounded">chevron_left</span>
+        </button>
+      </div>
+      <div class="sidebar-content">
+      <!-- Search Form -->
+        <form action="#" class="search-form">
+          <span class="material-symbols-rounded">search</span>
+          <input type="search" placeholder="Search..." required />
+        </form>
+        <!-- Sidebar Menu -->
+        <ul class="menu-list">
+          <li class="menu-item">
+            <a href="#" class="menu-link active">
+              <span class="material-symbols-rounded">dashboard</span>
+              <span class="menu-label">Dashboard</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              <span class="material-symbols-rounded">insert_chart</span>
+              <span class="menu-label">Analytics</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              <span class="material-symbols-rounded">notifications</span>
+              <span class="menu-label">Notifications</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              <span class="material-symbols-rounded">star</span>
+              <span class="menu-label">Favourites</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              <span class="material-symbols-rounded">storefront</span>
+              <span class="menu-label">Products</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              <span class="material-symbols-rounded">group</span>
+              <span class="menu-label">Customers</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              <span class="material-symbols-rounded">settings</span>
+              <span class="menu-label">Settings</span>
+            </a>
+          </li>
+                  <!-- More menu items here -->
+        </ul>
+      </div>
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <button class="theme-toggle">
+          <div class="theme-label">
+            <span class="theme-icon material-symbols-rounded">dark_mode</span>
+            <span class="theme-text">Dark Mode</span>
+          </div>
+          <div class="theme-toggle-track">
+            <div class="theme-toggle-indicator"></div>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+<!-- =========================
+         MAIN CONTENT
+         "Where the magic happens ✨"
+ ========================= -->
+  <main>
+  
+    <section class="main-content">
+      <div class="main-section">
+        <!-- First Chart -->
+        <div class="chart-wrapper">
+          <h2>This months order</h2>  <!-- Orders = heartbeats of the business ❤️ -->
+          <div id="chart"></div>
+        </div>
+
+               <!-- Shipment Chart -->
+        <div class="chart-wrapper">
+          <h2>Shipment Success</h2>
+
+          <div id="progressChart"></div>
+          <div class="progress-detail">
+            <div class="green"></div>
+            <h3 class="first">Success</h3>
+            <div class="grey"></div>
+            <h3 class="second">not yet</h3>
+          </div>
+        </div>
+        
+          <!-- Capacity Chart -->
+        <div class="chart-wrapper">
+          <h2>Capacity</h2>
+          <div id="salesChart"></div>
+        </div>
+    </section>
+    <section id="second-content">
+      <div class="second-main-content">
+        <div id="ad-sec">
+          <div class="call-card">
+            <div class="caller-avatar">
+              <img src="https://i.pravatar.cc/50" alt="caller" />
+            </div>
+            <div class="caller-info">
+              <h3>John Doe</h3>
+              <p>is calling...</p>
+              <div class="call-actions">
+                <button class="accept">Accept</button>
+                <button class="decline">Decline</button>
+              </div>
+              <div class="caller-info-details">
+                <div class="info-row">
+                  <span class="label">Company</span>
+                  <span class="value">Lyato</span>
+                </div>
+
+                <div class="info-row">
+                  <span class="label">Role</span>
+                  <span class="value">Manager</span>
+                </div>
+
+                <div class="info-row">
+                  <span class="label">Phone</span>
+                  <span class="value">1234567890</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">City</span>
+                  <span class="value">ABC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-card">
+            <h3>Upgrade to Pulse Pro!</h3>
+            <p>Get advanced analytics and priority support.</p>
+            <div id="ghost">
+              <div id="red">
+                <div id="pupil"></div>
+                <div id="pupil1"></div>
+                <div id="eye"></div>
+                <div id="eye1"></div>
+                <div id="top0"></div>
+                <div id="top1"></div>
+                <div id="top2"></div>
+                <div id="top3"></div>
+                <div id="top4"></div>
+                <div id="st0"></div>
+                <div id="st1"></div>
+                <div id="st2"></div>
+                <div id="st3"></div>
+                <div id="st4"></div>
+                <div id="st5"></div>
+                <div id="an1"></div>
+                <div id="an2"></div>
+                <div id="an3"></div>
+                <div id="an4"></div>
+                <div id="an5"></div>
+                <div id="an6"></div>
+                <div id="an7"></div>
+                <div id="an8"></div>
+                <div id="an9"></div>
+                <div id="an10"></div>
+                <div id="an11"></div>
+                <div id="an12"></div>
+                <div id="an13"></div>
+                <div id="an14"></div>
+                <div id="an15"></div>
+                <div id="an16"></div>
+                <div id="an17"></div>
+                <div id="an18"></div>
+              </div>
+              <div id="shadow"></div>
+            </div>
+            <button class="upgrade-button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
+                <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
+                <!-- From Uiverse.io by Juanes200122 -->
+              </svg>
+              Unlock Pro
+            </button>
+          </div>
+        </div>
+        <div class="table-section">
+          <h2>Recent Shipments</h2>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr class="name-row">
+                  <th>Shipment ID</th>
+                  <th>Origin</th>
+                  <th>Destination</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#12345</td>
+                  <td>New York</td>
+                  <td>Los Angeles</td>
+                  <td class="trans">In Transit</td>
+                  <td>2024-06-15</td>
+                </tr>
+                <tr>
+                  <td>#12346</td>
+                  <td>Chicago</td>
+                  <td>Houston</td>
+                  <td class="deliver">Delivered</td>
+                  <td>2024-06-14</td>
+                </tr>
+                <tr>
+                  <td>#12347</td>
+                  <td>Miami</td>
+                  <td>Seattle</td>
+                  <td class="pend">Pending</td>
+                  <td>2024-06-16</td>
+                </tr>
+                <tr>
+                  <td>#12348</td>
+                  <td>Russia</td>
+                  <td>Moscow</td>
+                  <td class="deliver">Delivered</td>
+                  <td>2024-06-16</td>
+                </tr>
+                <tr>
+                  <td>#12348</td>
+                  <td>Russia</td>
+                  <td>Moscow</td>
+                  <td class="deliver">Delivered</td>
+                  <td>2024-06-16</td>
+                </tr>
+                <tr>
+                  <td>#12348</td>
+                  <td>Russia</td>
+                  <td>Moscow</td>
+                  <td class="deliver">Delivered</td>
+                  <td>2024-06-16</td>
+                </tr>
+                <tr>
+                  <td>#12348</td>
+                  <td>Russia</td>
+                  <td>Moscow</td>
+                  <td class="deliver">Delivered</td>
+                  <td>2024-06-16</td>
+                </tr>
+                <tr>
+                  <td>#12348</td>
+                  <td>Russia</td>
+                  <td>Moscow</td>
+                  <td class="deliver">Delivered</td>
+                  <td>2024-06-16</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Info Cards Section -->
+      <div id="info-card-sec">
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-heading">
+              <h3>Total Shipments </h3> <img src="icons8-question-mark-48.png" alt=""> <img class="shipment-icon"
+                src="icons8-shipment-50.png" alt="">
+            </div>
+            <p>95,250</p>
+            <div class="info-inc">
+              <h6>+19706</h6>
+              <p class="month">vs last month</p><button>20% inc</button>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-heading">
+              <h3>On-Time Delivery Rate</h3> <img src="icons8-question-mark-48.png" alt=""><img class="shipment-icon"
+                src="icons8-delivery-time-48.png" alt="">
+            </div>
+
+            <p>92%</p>
+            <div class="info-inc">
+              <h6>+482</h6>
+              <p class="month">vs last month</p><button>8% inc</button>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-heading">
+              <h3>Average Delivery Time</h3><img src="icons8-question-mark-48.png" alt=""><img class="shipment-icon"
+                src="icons8-delivery-time-50.png" alt="">
+            </div>
+            <p>3.5 days</p>
+            <div class="info-inc">
+              <h6>+136</h6>
+              <p class="month">vs last month</p><button>4% inc</button>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-heading">
+              <h3>Delayed Shipments</h3> <img src="icons8-question-mark-48.png" alt=""><img class="shipment-icon"
+                src="icons8-decrease-30.png" alt="">
+            </div>
+            <p>75</p>
+            <div class="info-inc">
+              <h6>-20</h6>
+              <p class="month">vs last month</p><button class="dec">4% dec</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Shipment Location -->
+    <section id="shipment-location">
+    <!-- "Tracking shipments like a pro 🚚" -->
+      <div class="shipment-card">
+        <div class="shipment-info">
+          <div class="shipment-etc">
+            <div class="shipment-details">
+              <h3>🚚 Shipment Location</h3>
+              <p><strong>City:</strong> Karachi, Pakistan</p>
+              <p>
+                <strong>Status:</strong>
+                <span class="status in-transit">In Transit</span>
+              </p>
+              <p>
+                <strong>Last Update:</strong> <span id="lastUpdate">--</span>
+              </p>
+              <p>
+                <strong>Estimated Arrival:</strong> <span id="eta">--</span>
+              </p>
+            </div>
+            <div class="loader">
+              <div class="truckWrapper">
+                <div class="truckBody">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 198 93" class="trucksvg">
+                    <path stroke-width="3" stroke="#282828" fill="#F83D3D"
+                      d="M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z">
+                    </path>
+                    <path stroke-width="3" stroke="#282828" fill="#7D7C7C"
+                      d="M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z">
+                    </path>
+                    <path stroke-width="2" stroke="#282828" fill="#282828"
+                      d="M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z">
+                    </path>
+                    <rect stroke-width="2" stroke="#282828" fill="#FFFCAB" rx="1" height="7" width="5" y="63" x="187">
+                    </rect>
+                    <rect stroke-width="2" stroke="#282828" fill="#282828" rx="1" height="11" width="4" y="81" x="193">
+                    </rect>
+                    <rect stroke-width="3" stroke="#282828" fill="#DFDFDF" rx="2.5" height="90" width="121" y="1.5"
+                      x="6.5"></rect>
+                    <rect stroke-width="2" stroke="#282828" fill="#DFDFDF" rx="2" height="4" width="6" y="84" x="1">
+                    </rect>
+                  </svg>
+                </div>
+                <div class="truckTires">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" class="tiresvg">
+                    <circle stroke-width="3" stroke="#282828" fill="#282828" r="13.5" cy="15" cx="15">
+                    </circle>
+                    <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" class="tiresvg">
+                    <circle stroke-width="3" stroke="#282828" fill="#282828" r="13.5" cy="15" cx="15">
+                    </circle>
+                    <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+                  </svg>
+                </div>
+                <div class="road"></div>
+
+                <svg xml:space="preserve" viewBox="0 0 453.459 453.459" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns="http://www.w3.org/2000/svg" id="Capa_1" version="1.1" fill="#000000" class="lampPost">
+                  <path d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993
+c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514
+c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16
+c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914
+h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75
+v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795
+V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0z
+M232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017
+h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Google Map -->
+        <iframe src="https://www.google.com/maps?q=Karachi,Pakistan&output=embed" width="100%" height="240"
+          style="border: 0" loading="lazy">
+        </iframe>
+      </div>
+      <div class="chart-container">
+        <h2>Load Overview</h2>
+        <div class="categorie-info">
+          <h3>4.180</h3>
+          <p>(total items)</p>
+        </div>
+        <!-- Custom category labels above chart -->
+        <div class="categories">
+          <div class="categorie">
+            <h3>Electronics
+            </h3>
+            <p class="category-value">120%</p>
+          </div>
+          <div class="categorie">
+            <h3>Cotton
+            </h3>
+            <p class="category-value">80%</p>
+          </div>
+          <div class="categorie">
+            <h3>Other
+            </h3>
+            <p class="category-value">40%</p>
+          </div>
+        </div>
+        <div id="categories-chart"></div>
+      </div>
+    </section>
+  </main>
+  </div>
+</body>
+<!-- <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="script.js"></script>
+</html>
